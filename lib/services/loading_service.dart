@@ -1,6 +1,8 @@
+import 'package:deefirstapp/views/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../views/src/circle.dart';
+
 class LoadingService {
 
   static Future<void> showLoadingDialog(
@@ -26,7 +28,7 @@ class LoadingService {
                           SizedBox(
                             height: 5,
                           ),
-                          SpinKitCircle(color: Colors.blue),
+                          SpinKitCircle(color: kPrimaryColor),
                           // CircularProgressIndicator(
                           //   valueColor: AlwaysStoppedAnimation<Color>(
                           //       Colors.blueAccent),
@@ -38,7 +40,7 @@ class LoadingService {
                           ),
                           Text(
                             "Please Wait....",
-                            style: TextStyle(color: Colors.blueAccent),
+                            style: TextStyle(color: Colors.purple),
                           )
                         ]),
                       ),

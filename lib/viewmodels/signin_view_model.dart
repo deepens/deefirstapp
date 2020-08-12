@@ -24,7 +24,7 @@ class SignInViewModel extends BaseModel {
     showProgressBar(true);
     //LoadingService.showLoadingDialog(context,_progressDialogLoader) ;
     var result = await _userService.getUserid(email, password);
-    showProgressBar(false);
+    
     if (result != null || result.length >= 1) {
       String token;
       token = await _authService.getUserToken();
@@ -33,23 +33,30 @@ class SignInViewModel extends BaseModel {
       var isloggedin = await _userService.updateUserToken(result, token);
       if (isloggedin == "success") {
         setErrormessage("");
+        showProgressBar(false);
         _sharedDataService.setSharedData(ISUSERLOGGEDIN, YES);
+        
         _navigationService.navigateTo(HomePageRoute);
       } else {
         _sharedDataService.setSharedData(ISUSERLOGGEDIN, NO);
+        
         setErrormessage("Sign In failed , In correct e-mail id or password");
+        showProgressBar(false);
         // await _dialogService.showDialog(
         //     title: 'Sign In Failure',
         //     description: "Sign In failed , In correct e-mail id or password");
       }
     } else {
       _sharedDataService.setSharedData(ISUSERLOGGEDIN, NO);
+      
       setErrormessage("Sign In failed , In correct e-mail id or password");
+      showProgressBar(false);
       // await _dialogService.showDialog(
       //   title: 'Sign In Failure',
       //   description: "Sign In failed , In correct e-mail id or password",
       // );
     }
+    
   }
 
   void navigateToSignUp() {

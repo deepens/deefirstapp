@@ -6,6 +6,7 @@ import './services/navigation_service.dart';
 import './services/dialog_service.dart';
 import './views/startup_view.dart';
 import './shared/dialog_manager.dart';
+import './views/constants.dart';
 void main() {
   //final GlobalKey<NavigatorState> navigatorKey = new GlobalKey<NavigatorState>();
   setupLocator();
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
             builder: (context) => DialogManager(child: child)),
       ),
       theme: ThemeData(
-        primaryColor: Color(0xff19c7c1),
+        primaryColor:kPrimaryColor,
+        //scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(
               fontFamily: 'Open Sans',
             ),

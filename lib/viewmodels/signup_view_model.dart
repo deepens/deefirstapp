@@ -31,6 +31,7 @@ class SignUpViewModel extends BaseModel {
     lastname ??= '';
     String token;
     token = await _authService.getUserToken();
+    showProgressBar(true);
     var result = await _userService.addUsers(
         uemail: email,
         upassword: password,
@@ -39,6 +40,7 @@ class SignUpViewModel extends BaseModel {
         ulastname: lastname);
 
     if (result == "success") {
+     
       _navigationService.navigateTo(HomePageRoute);
     } else {
       await _dialogService.showDialog(
@@ -46,6 +48,7 @@ class SignUpViewModel extends BaseModel {
         description: result,
       );
     }
+     showProgressBar(false);
   }
 
   void navigateToSignIn() {

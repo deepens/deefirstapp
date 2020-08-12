@@ -7,8 +7,8 @@ import '../models/user_models.dart';
 
 class UserService {
   //GlobalKey<NavigatorState> _dialogNavigationKey = GlobalKey<NavigatorState>();
-  static const ROOT = 'http://192.168.29.220:81/uindex.php';
-  //static const ROOT = 'https://chikushah.000webhostapp.com/uindex.php';
+  //static const ROOT = 'http://192.168.29.220:81/uindex.php';
+  static const ROOT = 'https://chikushah.000webhostapp.com/uindex.php';
   static const _CREATE_TABLE_ACTION = 'CREATE_TABLE';
   static const _GET_ALL_ACTION = 'GET_ALL';
   static const _ADD_USER_ACTION = 'ADD_USER';
